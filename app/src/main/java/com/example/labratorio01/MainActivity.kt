@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
-import androidx.core.view.get
+
 
 class MainActivity : AppCompatActivity() {
     lateinit var etnNombre: EditText
@@ -28,7 +28,6 @@ class MainActivity : AppCompatActivity() {
         val nombre = etnNombre.text.toString()
         val edad = etnEdad.text.toString()
         val departamento = etnDepartamento.toString()
-        var resultado = tvresultado?.text.toString()
 
 
         if (nombre.length == 0) {
@@ -43,10 +42,8 @@ class MainActivity : AppCompatActivity() {
         if (nombre.length != 0 && edad.length != 0 && departamento.length != 0) {
             Toast.makeText(this, "Registro en proceso...", Toast.LENGTH_LONG).show()
         }
-        else
-        {
-            resultado = "Su nombre es ${nombre} de ${edad} del departamento de ${departamento}"
-        }
+
+        tvresultado?.text = ("Su nombre es" + nombre + "de" + edad + "del departamento " + departamento)
     }
 }
 
